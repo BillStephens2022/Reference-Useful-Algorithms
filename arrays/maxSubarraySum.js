@@ -21,9 +21,9 @@ function maxSubarraySum(arr, num) {
   tempSum = maxSum;
   // next, we use the 'sliding window', to calc tempSum ,
   // we subtract the first number from the old group and add the last number in the new group. from previous for loop, 
-  // we have a value of 10 (from adding 1,2,5,2).  Now we subtract the first number (1) and then add the next number in
-  // the array (8).  So the new value for tempSum is 17 (10 - 1 + 8).  This is greater than the previous maxSum, so 17
-  // becomes the new maxSum.
+  // we have a value of 10 (from adding 1,2,5,2).  Now we subtract the first number (1) from that grouping and then add 
+  // the next number in the array which is 8.  So the new value for tempSum is 17 (10 - 1 + 8).  This is greater than 
+  // the previous maxSum, so 17 becomes the new maxSum.
   for (let i = num; i < arr.length; i++) {
     tempSum = tempSum - arr[i - num] + arr[i];
     maxSum = Math.max(maxSum, tempSum);
