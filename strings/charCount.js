@@ -1,3 +1,5 @@
+
+
 // Function counts each alphanumeric character in a string and places
 // the result in an object where key is the character and value is the count.
 
@@ -23,9 +25,7 @@ function charCount(str){
 // OPTION 2 - using a separate, more efficient function (import isAlphaNumeric from this repo) 
 // to determine if char is alphanumeric.  Is Alphanumeric function is more efficient than a REGEX.
 
-import isAlphaNumeric from "./isAlphaNumeric";
-
-
+import isAlphaNumeric from "./isAlphaNumeric.js";
 
 function charCount_v2(str){
     let result = {}
