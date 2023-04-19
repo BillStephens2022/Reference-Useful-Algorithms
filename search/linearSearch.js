@@ -9,6 +9,11 @@ function linearSearch(arr, item) {
   return -1;
 }
 
-const arr = ["bill", "carolyn", "jimmy", "johnny", "tommy", "timmy"];
-console.log(linearSearch(arr, "tommy")); // 4
-console.log(linearSearch(arr, "micky")); // -1
+const namesArray = ["bill", "carolyn", "jimmy", "johnny", "tommy", "timmy"];
+console.log(linearSearch(namesArray, "tommy")); // 4
+console.log(linearSearch(namesArray, "micky")); // -1
+
+const numArray = [1, 44, 67, 21, 19, 14];
+console.log(linearSearch(numArray, 14)); // 5
+console.log(linearSearch(numArray, 67)); // 2
+console.log(linearSearch(numArray, 22)); // -1
