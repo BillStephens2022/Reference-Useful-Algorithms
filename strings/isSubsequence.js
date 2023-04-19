@@ -11,6 +11,8 @@ function isSubsequence(str1, str2) {
     if (str2[j] === str1[i]) {
         i++;
     }
+    // if i gets to be the length of the first string, that means it has successfully
+    // reached the end of the string by meeting the condition above on all letters.
     if (i === str1.length) {
         return true;
     }
@@ -18,7 +20,6 @@ function isSubsequence(str1, str2) {
   }
   return false;
 }
-
 
 console.log(isSubsequence('hello', 'hello world')); // true
 console.log(isSubsequence('sing', 'sting')); // true
