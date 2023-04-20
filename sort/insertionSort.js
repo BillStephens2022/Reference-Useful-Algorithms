@@ -1,5 +1,6 @@
 // builds up the sort by gradually creating a larger left portion which is always sorted and inserting the next value where it belongs.
 // in other words, take each element and insert it where it belongs.
+// performs better (as far as Big O) with nearly sorted data
 
 //STEPS
 // 1. start by picking the 2nd element of the array.
