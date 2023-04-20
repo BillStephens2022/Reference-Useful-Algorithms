@@ -1,4 +1,4 @@
-// search for an item in an array and return the index.  assume a sorted index.
+// search for an item in an array and return the index.  NOTE: binarySearch will only work on a SORTED array.
 
 function binarySearch(arr, item) {
   let left = 0;
