@@ -40,6 +40,16 @@ class SinglyLinkedList{
       }
       return current;
     }
+    shift() {
+      if (!this.head) return undefined;
+      let currentHead = this.head;
+      this.head = currentHead.next;
+      this.length--;
+      if (this.length === 0) {
+        this.tail = null;
+      }
+      return currentHead;
+    }
     traverse() {
       let current = this.head;
       while(current) {
@@ -58,12 +68,12 @@ let list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("NICE2MEETU");
-
+list.shift();
 console.log(list);
 list.traverse();
-list.pop();
-console.log(list);
-list.traverse();
-list.pop();
-list.pop();
-console.log(list);
+// list.pop();
+// console.log(list);
+// list.traverse();
+// list.pop();
+// list.pop();
+// console.log(list);
