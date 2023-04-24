@@ -111,6 +111,21 @@ class SinglyLinkedList{
       this.length--;
       return removed;
     }
+    // reverse order of items in linked list
+    reverse() {
+      let node = this.head;
+      this.head = this.tail;
+      this.tail = node;
+      let next;
+      let prev = null;
+      for(let i = 0; i < this.length; i++) {
+        next = node.next;
+        node.next = prev;
+        prev = node;
+        node = next;
+      }
+      return this;
+    }
     // traverses the entire list and console logs each item in the list.
     traverse() {
       let current = this.head;
@@ -118,6 +133,15 @@ class SinglyLinkedList{
         console.log(current.val);
         current = current.next;
       }
+    }
+    print() {
+      let arr = [];
+      let current = this.head;
+      while(current) {
+        arr.push(current.val);
+        current = current.next;
+      }
+      console.log(arr);
     }
 }
 
@@ -152,3 +176,5 @@ list.insert(0, "ZERO");
 list.traverse();
 list.remove(3);
 list.traverse();
+list.reverse();
+list.print();
