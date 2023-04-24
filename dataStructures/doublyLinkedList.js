@@ -70,6 +70,38 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+  // get an item at a specific index
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    var count, current;
+    // if statement used to optimize function - will work from the start if the index is in the first half of the list, otherwise
+    // will work from the end.
+    if (index < this.length / 2) {
+        count = 0;
+        current = this.head;
+        while (count != index) {
+            current = current.next;
+            count++;
+        }
+        return current;
+    } else {
+        count = this.length - 1;
+        current = this.tail;
+        while (count != index) {
+            current = current.prev;
+            count--;
+        }
+        return current;
+    }
+  }
+  set(index, val) {
+    let foundNode = this.get(index);
+    if (foundNode != null) {
+        foundNode.val = val;
+        return true;
+    }
+    return false;
+  }
 }
 
 let list = new DoublyLinkedList();
@@ -83,4 +115,8 @@ console.log(list);
 // list.shift();
 // console.log(list);
 list.unshift(50);
+// console.log(list);
+console.log(list.get(4));
+console.log(list.get(0));
+list.set(0, 25);
 console.log(list);
