@@ -89,8 +89,8 @@ class SinglyLinkedList{
     // adds a node to a list and inserts it into a specific position
     insert(index, val) {
       if (index < 0 || index > this.length) return false;     
-      if (index === this.length) return !!this.push(val);   //the "!!" returns true, which means the push works
-      if (index === 0) return !!this.unshift(val);  //the "!!" returns true, which means the unshift works
+      if (index === this.length) return !!this.push(val);   //the "!!" returns true, which means the push worked
+      if (index === 0) return !!this.unshift(val);  //the "!!" returns true, which means the unshift worked
       let newNode = new Node(val);
       let prev = this.get(index - 1);
       var temp = prev.next;
@@ -98,6 +98,18 @@ class SinglyLinkedList{
       newNode.next = temp;
       this.length++;
       return true;
+    }
+    // remove a node from a specific position
+    remove(index) {
+      if (index < 0 || index >= this.length) return undefined;
+      if (index === 0) return this.shift(val); 
+      if (index === this.length - 1) return this.pop(val); 
+      
+      let previousNode = this.get(index - 1);
+      let removed = previousNode.next;
+      previousNode.next = removed.next;
+      this.length--;
+      return removed;
     }
     // traverses the entire list and console logs each item in the list.
     traverse() {
@@ -137,4 +149,6 @@ console.log(list.get(3));
 list.set(2, "THIRD");
 list.insert(2, "TWO AND ONE HALF");
 list.insert(0, "ZERO");
+list.traverse();
+list.remove(3);
 list.traverse();
