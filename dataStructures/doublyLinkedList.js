@@ -56,6 +56,20 @@ class DoublyLinkedList {
     this.length--;
     return oldHead;
   }
+  // adds a new node at the beginning of the list
+  unshift(val) {
+    let newNode = new Node(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 let list = new DoublyLinkedList();
@@ -66,5 +80,7 @@ list.push(200);
 console.log(list);
 // list.pop();
 // console.log(list);
-list.shift();
+// list.shift();
+// console.log(list);
+list.unshift(50);
 console.log(list);
