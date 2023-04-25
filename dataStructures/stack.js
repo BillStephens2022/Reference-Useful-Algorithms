@@ -48,12 +48,12 @@ class Stack {
 
 
 let stack1 = new Stack();
-stack1.push("Bill");
-stack1.push("Stephens");
-stack1.push("is");
-stack1.push("a");
-stack1.push("programmer");
-stack1.push("last item added.");
+stack1.push("FIRST");
+stack1.push("SECOND");
+stack1.push("THIRD");
+stack1.push("FOURTH");
+stack1.push("FIFTH");
+stack1.push("SIXTH");
 console.log("This is all of the items pushed into the stack:  ")
 stack1.print();
 
