@@ -52,17 +52,30 @@ class BinarySearchTree {
   }
   // Breadth First Search (BFS)
   BFS() {
-    let data = []
+    let data = [];
     let queue = [];
     let node = this.root;
     queue.push(node);
     // while something is in the queue...
-    while(queue.length) {
+    while (queue.length) {
       node = queue.shift();
       data.push(node.val);
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
     }
+    return data;
+  }
+  // Depth First Search (DFS)
+  DFSPreOrder() {
+    let data = [];
+    let current = this.root;
+    // recursive function to traverse left then right on each node.
+    function traverse(node) {
+      data.push(node.val);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
     return data;
   }
 }
@@ -83,4 +96,5 @@ console.log("Find 2: ", tree.find(2)); // Find 11: Node { val: 2, left: null, ri
 console.log("Find 5: ", tree.find(5)); // Find 5: Node { val: 5, left: Node { val: 2, left: null, right: null }, right: Node {val: 7, left: null, right: null }}
 console.log("Find 100: ", tree.find(100)); // Find 100: undefined
 
-console.log(tree.BFS());
+console.log("Breadth First Search (BFS) results: ", tree.BFS());
+console.log("Depth First Search (DFS) results: ", tree.DFSPreOrder());
