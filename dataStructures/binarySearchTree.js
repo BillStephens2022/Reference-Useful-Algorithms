@@ -50,6 +50,21 @@ class BinarySearchTree {
     if (!found) return undefined;
     return current;
   }
+  // Breadth First Search (BFS)
+  BFS() {
+    let data = []
+    let queue = [];
+    let node = this.root;
+    queue.push(node);
+    // while something is in the queue...
+    while(queue.length) {
+      node = queue.shift();
+      data.push(node.val);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    return data;
+  }
 }
 
 let tree = new BinarySearchTree();
@@ -67,3 +82,5 @@ console.log("Find 11: ", tree.find(11)); // Find 11: Node { val: 11, left: null,
 console.log("Find 2: ", tree.find(2)); // Find 11: Node { val: 2, left: null, right: null }
 console.log("Find 5: ", tree.find(5)); // Find 5: Node { val: 5, left: Node { val: 2, left: null, right: null }, right: Node {val: 7, left: null, right: null }}
 console.log("Find 100: ", tree.find(100)); // Find 100: undefined
+
+console.log(tree.BFS());
