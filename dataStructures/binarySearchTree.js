@@ -65,7 +65,8 @@ class BinarySearchTree {
     }
     return data;
   }
-  // Depth First Search (DFS)
+  // Depth First Search (DFS) Pre Order - 
+  // root visited first, then visits each node on left, then right
   DFSPreOrder() {
     let data = [];
     let current = this.root;
@@ -76,6 +77,20 @@ class BinarySearchTree {
       if (node.right) traverse(node.right);
     }
     traverse(current);
+    return data;
+  }
+  // Depth First Search (DFS) Post Order - 
+  // root visited last, traverses the left then right, and then 
+  // visits the node once reaches end node and works its way up.
+  DFSPostOrder() {
+    let data = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right)
+      data.push(node.val);
+    }
+    traverse(current)
     return data;
   }
 }
@@ -96,5 +111,6 @@ console.log("Find 2: ", tree.find(2)); // Find 11: Node { val: 2, left: null, ri
 console.log("Find 5: ", tree.find(5)); // Find 5: Node { val: 5, left: Node { val: 2, left: null, right: null }, right: Node {val: 7, left: null, right: null }}
 console.log("Find 100: ", tree.find(100)); // Find 100: undefined
 
-console.log("Breadth First Search (BFS) results: ", tree.BFS());
-console.log("Depth First Search (DFS) results: ", tree.DFSPreOrder());
+console.log("Breadth First Search (BFS) results: ", tree.BFS()); // [10, 5, 13, 2, 7, 11, 16]
+console.log("Depth First Search Pre Order (DFSPreOrder) results: ", tree.DFSPreOrder()); // [10, 5, 2, 7, 13, 11, 16]
+console.log("Depth First Search Post Order (DFSPostOrder) results: ", tree.DFSPostOrder()); // [2, 7, 5, 11, 16, 13, 10]
