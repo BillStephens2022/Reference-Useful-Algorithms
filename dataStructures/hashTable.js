@@ -1,3 +1,5 @@
+// hash a key to get an index position and store it in that position
+
 class HashTable {
   constructor(size = 53) {
     this.keyMap = new Array(size);
