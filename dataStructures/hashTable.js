@@ -31,7 +31,20 @@ class HashTable {
     }
     return undefined;
   }
-  
+  // gets all unique values stored in the keyMap array.  if there is a duplicate it won't get returned twice.
+  values() {
+    let valuesArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!valuesArr.includes(this.keyMap[i][j][1])) {
+            valuesArr.push(this.keyMap[i][j][1]);
+          }
+        }
+      }
+    }
+    return valuesArr;
+  }
 }
 
 let ht = new HashTable(17);
@@ -47,3 +60,4 @@ console.log(ht.keyMap);
 console.log(ht.get("yellow")); // #FFFF00
 console.log(ht.get("maroon")); // #800000
 console.log(ht.get("mediumvioletred")); // #C71585
+console.log(ht.values());
